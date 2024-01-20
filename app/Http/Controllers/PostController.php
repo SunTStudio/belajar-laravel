@@ -9,11 +9,14 @@ class PostController extends Controller
     
     public function index(){
         
+        // dd(request('search'));
+
+        
+
         return view('blog',[
         "tittle" => "All Posts",
         "active" => 'posts',
-        // "post" =>Post::all(),
-        "post" =>Post::latest()->get(),
+        "post" =>Post::latest()->filter()->get(),
     ]); 
     }
 

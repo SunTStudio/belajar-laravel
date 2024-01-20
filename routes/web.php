@@ -22,12 +22,13 @@ Route::get('/', function () {
 
     
 
-    return view('home',["tittle" => "Home"]);
+    return view('home',["tittle" => "Home","active" => 'about']);
 });
 
 Route::get('/about', function () {
     $data = [
         "tittle" => "About",
+        "active" => 'about',
         "name" => "Mahsun",
         "email" => "Mahsun@gmail.com",
         "image" => "img/naruto.jpg",

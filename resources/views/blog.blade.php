@@ -3,7 +3,18 @@
 @extends('layout.main')
 @section('container') 
 
-    <h2 class="mb-5">{{ $tittle }}</h2>
+    <h2 class="mb-3 text-center">{{ $tittle }}</h2>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-6">
+            <form action="/blog">
+                <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
+                <button class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     @if ($post->count())
         <div class="card mb-3">
@@ -16,10 +27,7 @@
 
         </div>
     </div>
-    @else
-    <p class="text-center fs-4 fw-medium">No Post Found..</p>
-    @endif
-
+    
     <div class="container">
         <div class="row">
             @foreach ($post->skip(1) as $post )
@@ -39,5 +47,8 @@
              @endforeach
         </div>
     </div>
-    
+    @else
+    <p class="text-center fs-4 fw-medium">No Post Found..</p>
+    @endif
+
 @endsection
